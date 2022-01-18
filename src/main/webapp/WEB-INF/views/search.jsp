@@ -6,19 +6,20 @@
 <head>
 	<title>page test mirae</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> <!-- 웹 페이지에서 사용자가 볼 수 있는 영역인 뷰포트를 제어. 브라우저에게 해당 페이지의 면적과 비율 등을 어떻게 제어할 지에 대한 지침을 제공. -->
+	<meta name="format-detection" content="telephone=no" /> <!-- 검색엔진을 위해 웹 페이지와 관련된 콤마로 구분한 키워드 목록을 명시함 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="통합 파일 검색 시스템" />
-	<link rel="stylesheet" href="css/common.css" />
-	<script src="js/lib/jquery-1.8.3.min.js"></script>
+	<meta name="description" content="통합 파일 검색 시스템" /> <!-- description : 웹페이지에 대한 설명을 명시함. 검색엔진은 검색 결과에 이러한 설명을 함께 표시할 수 있음 -->
+	<link rel="stylesheet" href="resources/css/common.css" /> <!-- stylesheet로 사용할 외부 리소스를 불러옴 --> <!-- link 태그의 rel속성은 현재문서와 외부 리소스 사이의 연관 관계를 명시. rel속성은 <link> 요소에 반드시 명시되어야 하는 필수 속성 -->
+	<!-- /resources가 안되는 이유는 -> servlet-context.xml에서 resources mapping에 영향을 받음 -->
+	<script src="/resources/js/lib/jquery-1.8.3.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/lib/html5.js"></script>
 		<script src="js/lib/respond.min.js"></script>
 	<![endif]-->
-	<script src="js/lib/jquery-ui.js"></script>
-	<script src="js/lib/icheck.min.js"></script>
-    <script src="js/common.js"></script>
+	<script src="/resources/js/lib/jquery-ui.js"></script>
+	<script src="/resources/js/lib/icheck.min.js"></script>
+    <script src="/resources/js/common.js"></script>
 </head>
 <body>
 	<div id="wrap" class="user_version">
@@ -39,7 +40,7 @@
 				</div>
 				-->
 
-				<h1><a href="search.html"><img src="images/logo_n.png" alt="경상남도"></a></h1>
+				<h1><a href="search.html"><img src="resources/images/logo_n.png" alt="경상남도"></a></h1>
 				<div class="search_wrap">
 					<form>
 	                    <fieldset>
@@ -169,7 +170,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -177,7 +178,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -185,7 +186,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_xls.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -199,7 +200,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -207,7 +208,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -215,7 +216,7 @@
 							<dl>
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-								<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="엑셀 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 								<dd class="date">보고일 : 2019-12-08</dd>
 							</dl>
 						</li>
@@ -232,7 +233,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -240,7 +241,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -248,7 +249,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -256,7 +257,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -264,7 +265,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -305,7 +306,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -313,7 +314,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -321,7 +322,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -329,7 +330,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -337,7 +338,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">보고일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -382,14 +383,14 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">지시일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -397,21 +398,21 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="date">지시일 : 2019-12-08</dd>
 						</dl>
 					</li>
@@ -456,7 +457,7 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 							<dd class="more"><a href="#" class="btnmore">더보기</a></dd>
 						</dl>
 					</li>
@@ -464,28 +465,28 @@
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/mages/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -528,7 +529,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">간부명 : 도지사 | 일시 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -536,7 +537,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">간부명 : 도지사 | 일시 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -544,7 +545,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">간부명 : 도지사 | 일시 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -552,7 +553,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">간부명 : 도지사 | 일시 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -560,7 +561,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">주재자 : 김영0 | 회의일시 :  2019-11-28 12:00 ~ 13:00</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -602,7 +603,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -610,7 +611,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -618,7 +619,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -626,7 +627,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -634,7 +635,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -662,7 +663,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -670,7 +671,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -678,7 +679,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -686,7 +687,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 					<li>
@@ -694,7 +695,7 @@
 							<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 							<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 							<dd class="date">등록일 : 2019-11-25</dd>
-							<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
+							<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a><a href="#" class="btn btn_preview">미리보기</a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -773,7 +774,7 @@
 								<dt><a href="#">일하는 방식 개선을 위한 업무관리시스템 활용교육계획 안내</a></dt>
 								<dd class="desc">...여성가족정책관 저출생고령사회정책관 도정혁신추진단 기획조정실 정책기획관 대외협력담당관 예산담당관 법무담당관 문화관광체육국 문화예술과 12월 3일(화) 13:30-15:30 창원청사 전산교육장... 13:30-15:30 창원청사  13:30-15:30 창원청사  13:30-15:30 창원청사 </dd>
 								<dd class="date">등록일 : 2019-11-25</dd>
-								<dd><a href="#" class="filename"><img src="images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a></dd>
+								<dd><a href="#" class="filename"><img src="/resources/images/icon_han.png" alt="한글 파일" class="icon_file"> 1. 업무관리시스템 교육 세부일정(1).xlsx</a></dd>
 							</dl>
 						</li>
 					</ul>

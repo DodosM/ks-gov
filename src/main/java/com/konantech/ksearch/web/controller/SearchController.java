@@ -38,7 +38,7 @@ public class SearchController {
 		//기본파라미터 설정
 		setDefaultParam(paramvo);
 		logger.info(">>>>>>>>>>>>>> get params!! "+ paramvo);
-		return "search";
+		return "search"; //search.jsp로 이동하라는 의미
 	}
 
 	@RequestMapping(value = "/searchpo", method = {RequestMethod.GET, RequestMethod.POST})

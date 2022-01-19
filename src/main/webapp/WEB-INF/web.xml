@@ -42,8 +42,11 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<!-- web.xml내 spring초기 default설정에 의해 모든 접근은 servlet요청으로 판단 -->
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
 </web-app>

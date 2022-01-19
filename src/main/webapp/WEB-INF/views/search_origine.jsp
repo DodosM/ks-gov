@@ -2,11 +2,13 @@
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- apit -->
 <c:forTokens var="target" items="sample,board" delims=",">
     <c:if test="${params['category'] == target || params['category'] == 'total'}">
         <jsp:include page="/WEB-INF/views/query/query-${target}.jsp"/>
     </c:if>
 </c:forTokens>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

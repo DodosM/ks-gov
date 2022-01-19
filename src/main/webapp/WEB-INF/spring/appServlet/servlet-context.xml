@@ -16,8 +16,9 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
-
+	<!-- 아래와 같이 설정된 mapping경로의 경우 jsp단에서 /resources 자원 경로를 잡을 때, 영향을 준다-->
+	<resources mapping="/resources/**" location="/resources/" /> <!-- default config -->
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

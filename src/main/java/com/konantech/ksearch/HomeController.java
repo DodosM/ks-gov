@@ -49,7 +49,7 @@ public class HomeController {
 
 		String formattedDate = dateFormat.format(date);
 
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("serverTime", formattedDate ); //home.jsp의 변수 ${serverTime}으로 사용되고, formattedDate가 화면에 나타게 된다
 
 		return "home"; //view단의 home.jsp로 리턴
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <!--<![endif]-->
@@ -21,7 +22,37 @@
 	<script src="resources/js/lib/icheck.min.js"></script>
     <script src="resources/js/common.js"></script>
 </head>
+
 <body>
+	<!-- 숨김값으로 폼 제출을 한다 -->
+	<form id="historyForm" name="historyForm" action="searchpo.do" method="post">
+        <input type="hidden" id="category" name="category" value="<c:out value="${params.category}" />">
+        <!-- <c:out value="${params.category}" />" 
+        		- 해석 : param은 컨트롤러에서 @ModelAttribute("param")으로 받을 값으로 씀
+        		- 	  : 즉, SearchParamVo.category로 vo객체를 파라미터로 가져다 쓸 수 있게 됨
+        -->
+        <input type="hidden" id="kwd" name="kwd" value="<c:out value="${params.kwd}" />">
+        <input type="hidden" id="preKwds" name="preKwds" value="<c:out value="${params.preKwds}" />">
+        <input type="hidden" id="date" name="date" value="<c:out value="${params.date}" />">
+        <input type="hidden" id="startDate" name="startDate" value="<c:out value="${params.startDate}" />">
+        <input type="hidden" id="endDate" name="endDate" value="<c:out value="${params.endDate}" />">
+        <input type="hidden" id="page" name="page" value="<c:out value="${params.page}" />">
+         <input type="hidden" id="pageSize" name="pageSize" value="<c:out value="${params.pageSize}" />">
+        <input type="hidden" id="offset" name="offset" value="<c:out value="${params.offset}" />">
+        <input type="hidden" id="resrch" name="resrch" value="<c:out value="${params.resrch}" />">
+        <input type="hidden" id="sort" name="sort" value="<c:out value="${params.sort}" />">
+        <input type="hidden" id="sortNm" name="sortNm" value="<c:out value="${params.sortNm}" />">
+        <input type="hidden" id="fields" name="fields" value="<c:out value="${params.fields}" />">
+        <input type="hidden" id="detail" name="detail" value="<c:out value="${params.detail}" />">
+        <input type="hidden" id="basickwd" name="basickwd" value="<c:out value="${params.basickwd}" />">
+        <input type="hidden" id="exactkwd" name="exactkwd" value="<c:out value="${params.exactkwd}" />">
+        <input type="hidden" id="inkwd" name="inkwd" value="<c:out value="${params.inkwd}" />">
+        <input type="hidden" id="notkwd" name="notkwd" value="<c:out value="${params.notkwd}" />">
+        <input type="hidden" id="autospc" name="autospc" value="">
+        <input type="hidden" id="tr_code" name="tr_code" value="<c:out value="${params.tr_code}" />">
+        <input type="hidden" id="srch_opt" name="srch_opt" value="<c:out value="${params.srch_opt}" />">
+    </form>
+
 	<div id="wrap" class="user_version"> <!-- body의 전체 'div id=wrap' -->
 		<p id="skipnavi"><a href="#contents">본문 바로가기</a></p>
 		<div id="header_wrap">

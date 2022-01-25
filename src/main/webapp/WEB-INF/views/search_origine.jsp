@@ -61,6 +61,10 @@
 <body>
     <form id="historyForm" name="historyForm" action="searchpo.do" method="post">
         <input type="hidden" id="category" name="category" value="<c:out value="${params.category}" />">
+        <!-- <c:out value="${params.category}" />" 
+        		- 해석 : param은 컨트롤러에서 @ModelAttribute("param")으로 받을 값으로 씀
+        		- 	  : 즉, SearchParamVo.category로 vo객체를 가져다 쓸 수 있게 됨
+        -->
         <input type="hidden" id="kwd" name="kwd" value="<c:out value="${params.kwd}" />">
         <input type="hidden" id="preKwds" name="preKwds" value="<c:out value="${params.preKwds}" />">
         <input type="hidden" id="date" name="date" value="<c:out value="${params.date}" />">

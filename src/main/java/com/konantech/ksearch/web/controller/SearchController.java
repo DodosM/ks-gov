@@ -72,6 +72,10 @@ public class SearchController {
 	 */
 	private void setDefaultParam(SearchParamVo paramvo) {
 
+		/** if조건
+		 * 변수.equals(비교문자열) : 변수가 주체가 되어서 문자열 비교
+		 * 비교문자열.equals(변수) : 비교문자열이 주체가 되어서 문자열 비교
+		*/
 		//페이지 사이즈
 		if("total".equals(paramvo.getCategory())) {
 			paramvo.setPageSize(TOTAL_PAGE_SIZE);

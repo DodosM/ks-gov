@@ -5,10 +5,14 @@
 4. search.jsp에서 css적용 되는 지 확인하기 (/resources의 css파일이 어디에 지정되어 있는지 확인. 그리고 servlet-context.xml에 
 resources가 어디로 mapping이 되어 있는지 확인 --> /resources/라면, 뒤의 /까지 설정이 되있는것이다!! 그래서 바로 resources/css/common.css로 
 지정한다)
-5. servlet-context.xml에서 base-package 등록(com.konantech.ksearch)
-6. WEB-INF/spring/appServlet/ksearch-context.xml생성
-7. ksearch-context.xml 내 util:properties id=searchConfig 생성
-8. 
+5. servlet-context.xml에서 base-package 등록 (com.konantech.ksearch)
+6. WEB-INF/spring/appServlet/ksearch-context.xml 내 util:properties id=searchConfig 생성
+7. SearchConstConfigurer.java 클래스 생성 
+8. 위 클래스에서 구현한 init print 메소드는 servlet-context.xml에서 객체생성 시 실행되는 함수로 사용된다
+
+9. searchController.java 위치 시키기
+10. @RequestMapping value값 정하기 (/search5 로 정해야하나? 그래야 쿼리 /search5?로 접근할 수 있으니까?)
+11.
 
 
 ### home.jsp의 구동 과정 -> notion 참조 하길

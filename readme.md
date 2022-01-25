@@ -11,8 +11,12 @@ resources가 어디로 mapping이 되어 있는지 확인 --> /resources/라면,
 8. 위 클래스에서 구현한 init print 메소드는 servlet-context.xml에서 객체생성 시 실행되는 함수로 사용된다
 
 9. searchController.java 위치 시키기
-10. @RequestMapping value값 정하기 (/search5 로 정해야하나? 그래야 쿼리 /search5?로 접근할 수 있으니까?)
-11.
+		--> CommonUtil / ParamVO / search.jsp 위치 필수
+10. @RequestMapping value값 정하기 (/search5 로 정해야하나? 그래야 쿼리 /search5?로 접근할 수 있으니까? -> properties에 이미 정해져있음)
+
+** 지금 훑어본 결과 lombok라이브러리 사용 중요 **
+
+11. 
 
 
 ### home.jsp의 구동 과정 -> notion 참조 하길

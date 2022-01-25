@@ -96,6 +96,15 @@ public class CommonUtil {
      * @param paramvo
      * @return
      */
+    
+    /* 
+     * StringBuffer클래스의 인스턴스는 그 값을 변경할 수 도 있고, 추가할 수도 있음 
+     * 내부적으로 buffer라고 하는 독립적인 공간을 가짐
+     * 문자열을 바로 추가할 수 있으므로, 공간의 낭비도 없으면 속도도 매우 빨라짐
+     * 보통은 stringBuffer로 .append를 하여 붙이는 용도로 많이 사용한다
+     * 
+     */
+    
     public String getCustomLog(SearchParamVo paramvo) {
     	StringBuffer sb = new StringBuffer();
 

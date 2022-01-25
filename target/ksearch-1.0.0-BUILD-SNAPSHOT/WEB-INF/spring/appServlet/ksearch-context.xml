@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 다음 내용은 SearchConstConfigurer.java에서 사용된다 -->
+	<!-- property는 일부 객체지향 프로그래밍 언어에서 필드(데이터 멤버)와 메소드 간 기능의 중간인 클래스 멤버의 특수한 유형 -->
+	<!-- 
+	@Autowired 
+	private Properties searchConfig;
+	-->
+    <util:properties id="searchConfig"> 
+        <prop key="SITE">KONAN</prop>
+        <prop key="CHARSET">UTF-8</prop>
+        <prop key="CREDENTIAL">0baea2f0ae20150d</prop>
+        <prop key="KLA_URL">http://10.10.20.237:4577</prop>
+        <prop key="SEARCH_URL">http://10.10.20.237:9577/search5</prop>
+        <prop key="KSF_URL">http://10.10.20.237:9614/ksf/api/</prop>
+        <prop key="KONANBOT_URL">http://10.10.20.23:7624/konanbot/</prop>
+        <prop key="KONANBOT_DEFAULT_DOMAIN">common</prop>
+        <prop key="KONANBOT_DEFAULT_USER">test</prop>
+        <prop key="TIMEOUT">5000</prop>
+    </util:properties>
+
+</beans>

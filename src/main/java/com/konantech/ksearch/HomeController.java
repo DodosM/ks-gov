@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
-@Controller
+
+@Controller //controller라고 bean선언
 public class HomeController {
 
-    @Value("#{searchConfig['SEARCH_URL']}")
+    @Value("#{searchConfig['SEARCH_URL']}") 
     private String searchUrl;
 
     //@Resource(name="volumeMap")
@@ -34,6 +35,8 @@ public class HomeController {
 
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * locale.class는 지역의 언어,나라 등의 정보를 담고 있는 클래스
+	 * model 타입을 메서드로 파라미터로 주입 하게 되면 -> view로 전달하는 데이터를 담아서 보낼 수 있음
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -48,7 +51,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate );
 
-		return "home";
+		return "home"; //view단의 home.jsp로 리턴
 	}
 
 }

@@ -11,14 +11,16 @@ import org.springframework.context.annotation.Configuration;
 
 import com.konantech.ksearch.constants.SearchConstant;
 
+//아마도 const는 constant라고 하여, 일정한(변함없는)의 의미로 사용되었을 것이다
+//SearchConstConfigurer 클래스는 검색하는데에 값이 변하지 않는 일정한 값을 만들어 놓은것!
 
 public class SearchConstConfigurer {
 	private static final Logger logger = LoggerFactory.getLogger(SearchConstConfigurer.class);
 
-	/** context-bean.xml 에서 설정 */
+	/** ksearch-context.xml 에서 설정  */
 	@Autowired
-	private Properties		searchConfig;
-
+	private Properties	searchConfig; //properties의 읽기와 쓰기는 일반적으로 getter/setter메소드 호출 변환한다
+	
 	/**
 	 * 생성자.
 	 */
@@ -37,6 +39,7 @@ public class SearchConstConfigurer {
 		//------------
 		// 필수
 		//------------
+		//class -> SearchConstant에서 public static String SITE; 정의 한 것
 		SearchConstant.SITE				= this.searchConfig.getProperty("SITE");
 		SearchConstant.CHARSET		= this.searchConfig.getProperty("CHARSET");
 		SearchConstant.CREDENTIAL		= this.searchConfig.getProperty("CREDENTIAL");

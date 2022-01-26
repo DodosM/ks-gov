@@ -1,14 +1,12 @@
 package com.konantech.ksearch.constants;
 
-//SearchConstConfigurer.java 등등... 가기 전에 '정의'한다.
+//SearchConstConfigurer 가기 전에 
 public class SearchConstant {
 
 	//#########################################################################
 	// 설정파일 ksearch_context 설정
 	//#########################################################################
-	//사용 예시 : SearchConstant.SITE	= this.searchConfig.getProperty("SITE");
 	public static String	SITE;
-	
 	//charset
 	public static String   CHARSET;
 	//Security

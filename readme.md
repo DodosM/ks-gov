@@ -14,9 +14,8 @@ resources가 어디로 mapping이 되어 있는지 확인 --> /resources/라면,
 		--> CommonUtil / ParamVO / search.jsp 위치 필수
 10. @RequestMapping value값 정하기 (/search5 로 정해야하나? 그래야 쿼리 /search5?로 접근할 수 있으니까? -> properties에 이미 정해져있음)
 
+11.
 ** 지금 훑어본 결과 lombok라이브러리 사용 중요 **
-
-11. 
 
 
 ### home.jsp의 구동 과정 -> notion 참조 하길
@@ -28,13 +27,19 @@ resources가 어디로 mapping이 되어 있는지 확인 --> /resources/라면,
 
 그래서.... 두 가지 방법 중 하나 선택
 2) web.xml에서 [*.js의 요청은 servlet이 아닌 default로 처리]
+/*
 <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
 </servlet-mapping>
+*/
 
 3) servlet-context.xml에서 [resource 설정 추가]
+/*
 <resources mapping="/js/**" location="/resources/js/" />
 <resources mapping="/resources/**" location="/resources/" /> //default config
+*/
 
-
+### 이클립스에서 삭제된 파일 복구
+1. package Exploer에서
+2. 삭제한 패키지 폴더 선택 > 마우스 우클릭 > Restore from local History.. 

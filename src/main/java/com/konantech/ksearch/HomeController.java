@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller //controller라고 bean선언
 public class HomeController {
 
-    @Value("#{searchConfig['SEARCH_URL']}") //아래 searchUrl로 선언된 변수에 -> properties에 정의한 내용을 가져와서 사용할 수 있음
+    @Value("#{searchConfig['SEARCH_URL']}") //아래 searchUrl로 선언된 변수에 / properties에 정의한 내용을 가져와서 사용할 수 있음
     private String searchUrl;
 
     //@Resource(name="volumeMap")

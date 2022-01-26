@@ -39,7 +39,6 @@ public class SearchConstConfigurer {
 		//------------
 		// 필수
 		//------------
-		//class -> SearchConstant에서 public static String SITE; 정의 한 것
 		SearchConstant.SITE				= this.searchConfig.getProperty("SITE");
 		SearchConstant.CHARSET		= this.searchConfig.getProperty("CHARSET");
 		SearchConstant.CREDENTIAL		= this.searchConfig.getProperty("CREDENTIAL");

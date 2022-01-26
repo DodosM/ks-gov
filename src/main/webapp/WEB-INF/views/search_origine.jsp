@@ -71,7 +71,7 @@
         <input type="hidden" id="startDate" name="startDate" value="<c:out value="${params.startDate}" />">
         <input type="hidden" id="endDate" name="endDate" value="<c:out value="${params.endDate}" />">
         <input type="hidden" id="page" name="page" value="<c:out value="${params.page}" />">
-         <input type="hidden" id="pageSize" name="pageSize" value="<c:out value="${params.pageSize}" />">
+        <input type="hidden" id="pageSize" name="pageSize" value="<c:out value="${params.pageSize}" />">
         <input type="hidden" id="offset" name="offset" value="<c:out value="${params.offset}" />">
         <input type="hidden" id="resrch" name="resrch" value="<c:out value="${params.resrch}" />">
         <input type="hidden" id="sort" name="sort" value="<c:out value="${params.sort}" />">

@@ -27,7 +27,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper=false) //callSuper=false은 기본값
 @JsonInclude(JsonInclude.Include.NON_NULL) //null인 데이터는 json결과에 나타나지 않음
-@Data
+@Data 
 public class SearchParamVo{
 	//private static final long serialVersionUID =1L;
 	//getter setter toString을 만들지 않아도 되는 이유 -> lombok라이브러리인 @Data가 모든 필드에 대한 자동 생성을 해주기 때문

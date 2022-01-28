@@ -18,9 +18,16 @@
 		<script src="js/lib/html5.js"></script>
 		<script src="js/lib/respond.min.js"></script>
 	<![endif]-->
+	<!-- script태그를 마무리 할 때 <script /> 안됨 -->
 	<script src="resources/js/lib/jquery-ui.js"></script>
 	<script src="resources/js/lib/icheck.min.js"></script>
     <script src="resources/js/common.js"></script>
+
+    <!-- ======konan js====== -->
+    <script src="resources/js/konan/search.js"></script>
+    
+    <!-- ==================== -->
+    
 </head>
 
 <body>
@@ -53,113 +60,14 @@
         <input type="hidden" id="srch_opt" name="srch_opt" value="<c:out value="${params.srch_opt}" />">
     </form>
 
-	<div id="wrap" class="user_version"> <!-- body의 전체 'div id=wrap' -->
-		<p id="skipnavi"><a href="#contents">본문 바로가기</a></p>
-		<div id="header_wrap">
-			<div id="header">
-				<h1><a href="search.html"><img src="resources/images/logo_n.png" alt="경상남도"></a></h1>
-				<div class="search_wrap">
-					<form>
-	                    <fieldset>
-	                        <legend>통합검색</legend>
-	                        <div class="search_area">
-								<div class="selectStyle">
-									<span class="txt">통합검색</span>
-									<select title="검색타입 선택">
-										<option value="type1">통합검색</option>
-									</select>
-								</div>
-								<input type="search" title="검색어 입력" class="inptxt" />
-								<button type="submit" class="btn_search"><span class="hide">검색</span></button>
-							</div>
-							<div class="srhchk"><input type="checkbox" id="srhchk" name=""><label for="srhchk">결과내 재검색</label></div>
-	                    </fieldset>
-	                </form>
-				</div>
 
-				<div class="laytit"><a href="#">상세검색</a></div>
-
-			</div>
-		</div>
-
-		<div class="search_detail">
-			<form>
-			<fieldset>
-				<legend>상세검색양식</legend>
-
-				<ul>
-					<li><strong class="tit_check"><a href="#">정렬</a></strong>
-						<div class="sub">
-						<ul>
-							<li><a href="#">정확도순</a></li>
-							<li><a href="#">최신순</a></li>
-						</ul>
-						</div>
-					</li>
-					<li><strong class="tit_check"><a href="#">기간</a></strong>
-						<div class="sub sub1">
-						<ul>
-							<li><a href="#">최근1주</a></li>
-							<li><a href="#">최근1달</a></li>
-							<li><a href="#">최근3달</a></li>
-							<li><a href="#">최근1년</a></li>
-							<li class="selectdv">
-								<span class="select_date">직접입력</span>
-								<div><input type="text" class="datepicker" title="날짜 선택" /></div>
-								<input type="text" class="datepicker" title="날짜 선택" />
-								<div class="subBtn"><a href="#">적용하기</a></div>
-							</li>
-						</ul>
-						</div>
-					</li>
-					<li><strong class="tit_check"><a href="#">영역</a></strong>
-						<div class="sub">
-						<ul>
-							<li><a href="#">전체</a></li>
-							<li><a href="#">제목</a></li>
-							<li><a href="#">내용</a></li>
-							<li><a href="#">첨부파일</a></li>
-						</ul>
-						</div>
-					</li>
-					<li><strong class="tit_check"><a href="#">상세검색</a></strong>
-						<div class="sub sub4">
-							<div class="ipt_tp">
-								<input name="dquery" type="text" class="subinput" value="" onkeypress="javascript:pressCheck((event),this);" placeholder="경상남도 “민원실” +콜센터 -일자리">
-							</div>
-							<ul>
-								<li>
-									<label for="dtkeyword1">기본검색어</label>
-									<input type="text" id="dtkeyword1" name="" value="" title="기본검색어">
-								</li>
-								<li>
-									<label for="dtkeyword2">정확히 일치하는 단어/문장 ("")</label>
-									<input type="text" id="dtkeyword2" title="일치검색">
-								</li>
-								<li>
-									<label for="dtkeyword3">반드시 포함하는 단어 (공백)</label>
-									<input type="text" id="dtkeyword3" value="" title="포함검색">
-								</li>
-								<li>
-									<label for="dtkeyword4">제외하는 단어 (!)</label>
-									<input type="text" id="dtkeyword4" value="" title="제외검색">
-								</li>
-							</ul>
-							<p class="srhnoti"> * 여러 개의 단어를 입력할 때는 쉼표(,)로 구분해서 입력하세요.</p>
-							<div class="dbtn">
-								<a href="#" onclick="javascript:doSearch();return false;" class="srh">검색</a>
-								<a href="#" class="close">닫기</a>
-								<a href="#" class="clear">초기화</a>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</fieldset>
-			</form>
-		</div>
-
-		<div id="container">
+	<div id="wrap" class="user_version"> <!-- body의 전체 'wrap' -->
+		<p id="skipnavi"><a href="#contents">본문 바로가기</a></p> <!-- 화면단에 보이지 않음 -->
+		
+		<!-- header&상세보기 topSearch.jsp -->
+		<jsp:include page="/WEB-INF/views/include/topSearch.jsp" />
 	
+		<div id="container">	
 			<div class="searchRgt">
 			검색어 <strong>“민원”</strong>에 대한 검색 결과입니다.  <em>( 11,649건 )</em>
 			</div>
@@ -478,7 +386,7 @@
 
 		</div>
 
-		<div id="footer">
+		<div id="footer"> 
 			Copyright &copy; 2019 Gyeongsangnamdo. All rights reseved.
 		</div>
 

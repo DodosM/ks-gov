@@ -1,129 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-            <!-- 검색창 -->
-            <div class="search-line">
-                <div class="inner">
-                    <h1 class="pc-view">
-                        <a href=""><span>KONAN</span></a>
-                    </h1>
+		<!-- 헤더 시작 -->
+		<div id="header_wrap">
+			<div id="header">
+				<h1><a href="/ksearch"><img src="resources/images/logo_n.png" alt="경상남도"></a></h1> <!-- 로고를 클릭 했을 때, /ksearch로 간다 -->
+				<div class="search_wrap">
+					<form>
+	                    <fieldset> <!-- <form>요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용 -->
+	                        <legend>통합검색</legend> <!-- fieldset요소의 캡션(caption)을 정의 할 때 사용 -->
+	                        <div class="search_area">
+								<div class="selectStyle">
+									<span class="txt">통합검색</span>
+									<select title="검색타입 선택">
+										<option value="type1">통합검색</option>
+										<option value="type2">온라인보고</option>
+										<option value="type3">온-나라</option>
+										<option value="type3">과제·계획</option>
+									</select>
+								</div>
+								<input type="search" title="<c:out value='${params.kwd}' />" class="inptxt" />
+								<button type="submit" class="btn_search"><span class="hide">검색</span></button>
+							</div>
+							
+							<!-- ======== 아래 class="srhchk"js에서 구현해야하는 곳 : api받아와야 한다. append ======== -->
+							<div class="srhchk">
+								<input type="checkbox" id="srhchk" name="">
+								<label for="srhchk">결과내 재검색</label>								
+							</div>							
+							<!-- ================================================ -->
+	                    </fieldset>
+	                </form>
+				</div>
+				<div class="laytit"><a href="#">상세검색</a></div>
+			</div>
+		</div>
+		<!-- //헤더 끝 -->
 
-                    <fieldset>
-                        <legend>통합검색</legend>
-                        <form name="search-form" autocomplete="off">
-                            <!-- 검색창 -->
-                             <div class="search">
-                                <label for="kwd" class="sr-only">검색어를 입력해 주세요</label>
-                                <input type="text" value="<c:out value='${params.kwd}'/>" id="search-text" class="konan-autocomplete-input"
-                                            name="kwd" placeholder="검색어를 입력해 주세요" style="ime-mode:active;"
-                                            title="검색창" autocomplete="off">
-                                    <button type="submit" class="btn btn-search" title="검색">
-                                    <span class="sr-only">검색하기</span>
-                                 </button>
-                             </div>
-                            <div class="search-check-box">
-                                <input type="checkbox" name="resrch" id="search_re">
-                                <label for="search_re"><strong>결과내 재검색</strong></label>
-                            </div>
-                        </form>
-                    </fieldset>
-                </div>
-            </div>
+		<!-- 상세보기 시작 -->
+		<div class="search_detail">
+			<form>
+			<fieldset>
+				<legend>상세검색양식</legend>
 
-            <!-- navi bar -->
-            <div class="searchnav">
-                <nav>
-                    <ul class="gnb">
-                        <li class="ctgr">
-                            <a href="javascript:void(0);" data-target="total" data-trcode="menu01">통합검색<span class="gnb-bar"></span></a>
-                        </li>
-                        <li class="ctgr">
-                            <a href="javascript:void(0);" data-target="sample" data-trcode="menu02">샘플<span class="gnb-bar"></span></a>
-                        </li>
-                    </ul>
-                    <div class="search-option">
-                        <a href="javascript:void(0);" data-trcode="menu09">검색옵션<span class=""></span></a>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- 상세검색 -->
-            <div id="filtersearh" class="search-option-inner">
-                <ul class="search-option-menu">
-                    <li>
-                        <a href="javascript:void(0);">최신순<span class="ico-set up"></span></a>
-                        <div class="more-layer" data-param="sort">
-                            <ul class="more-menu">
-                                <li><a href="javascript:void(0);" data-cd="d" data-trcode="opt01_02" class="active">최신순</a></li>
-                                <li><a href="javascript:void(0);" data-cd="r" data-trcode="opt01_01">정확도순</a></li>
-                                <li><a href="javascript:void(0);" data-cd="c" data-trcode="opt01_03">클릭순</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">기간<span class="ico-set up"></span></a>
-                        <div class="more-layer" data-param="date">
-                            <ul class="more-menu">
-                                <li><a href="javascript:void(0);" data-cd="" data-trcode="opt02_01" class="active">전체</a></li>
-                                <li><a href="javascript:void(0);" data-cd="d" data-trcode="opt02_02">1일</a></li>
-                                <li><a href="javascript:void(0);" data-cd="w" data-trcode="opt02_03">1주</a></li>
-                                <li><a href="javascript:void(0);" data-cd="m" data-trcode="opt02_04">1개월</a></li>
-                                <li><a href="javascript:void(0);" data-cd="3m" data-trcode="opt02_05">3개월</a></li>
-                                <li><a href="javascript:void(0);" data-cd="y" data-trcode="opt02_06">1년</a></li>
-                                <li>
-                                    <div class="more-input" data-cd="input" data-trcode="opt02_07">
-                                        <p>직접입력</p>
-                                        <input type="text" name="sdate" id="sdate" title="시작일" >
-                                        <label for="sdate" class="blind">시작일</label>
-                                        <input type="text" name="edate" id="edate" title="종료일" >
-                                        <label for="edate" class="blind">종료일</label>
-                                        <button>적용</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">영역<span class="ico-set up"></span></a>
-                        <div class="more-layer" data-param="fields">
-                            <ul class="more-menu">
-                                <li><a href="javascript:void(0);" data-cd="" data-trcode="opt03_01" class="active">전체</a></li>
-                                <li><a href="javascript:void(0);" data-cd="title" data-trcode="opt03_02">제목</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">상세검색<span class="ico-set up"></span></a>
-                        <div class="more-layer" data-param="detail" data-trcode="opt04_01">
-                            <div class="detail-box">
-                                <p class="detail-input">
-                                    <input type="text" name="detailkwd" id="detailkwd" title="상세검색어" disabled="" />
-                                    <label for="detailkwd" class="blind">상세검색어</label>
-                                </p>
-                                <dl>
-                                    <dt><label for="s1">기본검색어</label></dt>
-                                    <dd><div><input type="text" name="s1" id="s1"></div></dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="s2">정확히 일치하는 단어/문장 (””)</label></dt>
-                                    <dd><div><input type="text" name="s2" id="s2"></div></dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="s3">반드시 포함하는 단어 (+)</label></dt>
-                                    <dd><div><input type="text" name="s3" id="s3"></div></dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="s4">제외하는 단어 (-)</label></dt>
-                                    <dd><div><input type="text" name="s4" id="s4"></div></dd>
-                                </dl>
-                                <p class="detail-info">* 여러 개의 단어를 입력할 때는 쉽표(,)로 구분해서 입력하세요</p>
-                                <div class="detail-btn-set">
-                                    <button class="blue srch">검색</button>
-                                    <button class="gray exit">닫기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- end.상세검색 -->
+				<ul>
+					<li><strong class="tit_check"><a href="#">정렬</a></strong>
+						<div class="sub">
+						<ul>
+							<li><a href="#">정확도순</a></li>
+							<li><a href="#">최신순</a></li>
+						</ul>
+						</div>
+					</li>
+					<li><strong class="tit_check"><a href="#">기간</a></strong>
+						<div class="sub sub1">
+						<ul>
+							<li><a href="#">최근1주</a></li>
+							<li><a href="#">최근1달</a></li>
+							<li><a href="#">최근3달</a></li>
+							<li><a href="#">최근1년</a></li>
+							<li class="selectdv">
+								<span class="select_date">직접입력</span>
+								<div><input type="text" class="datepicker" title="날짜 선택" /></div>
+								<input type="text" class="datepicker" title="날짜 선택" />
+								<div class="subBtn"><a href="#">적용하기</a></div>
+							</li>
+						</ul>
+						</div>
+					</li>
+					<li><strong class="tit_check"><a href="#">영역</a></strong>
+						<div class="sub">
+						<ul>
+							<li><a href="#">전체</a></li>
+							<li><a href="#">제목</a></li>
+							<li><a href="#">내용</a></li>
+							<li><a href="#">첨부파일</a></li>
+						</ul>
+						</div>
+					</li>
+					<li><strong class="tit_check"><a href="#">상세검색</a></strong>
+						<div class="sub sub4">
+							<div class="ipt_tp">
+								<input name="dquery" type="text" class="subinput" value="" onkeypress="javascript:pressCheck((event),this);" placeholder="경상남도 “민원실” +콜센터 -일자리">
+							</div>
+							<ul>
+								<li>
+									<label for="dtkeyword1">기본검색어</label>
+									<input type="text" id="dtkeyword1" name="" value="" title="기본검색어">
+								</li>
+								<li>
+									<label for="dtkeyword2">정확히 일치하는 단어/문장 ("")</label>
+									<input type="text" id="dtkeyword2" title="일치검색">
+								</li>
+								<li>
+									<label for="dtkeyword3">반드시 포함하는 단어 (공백)</label>
+									<input type="text" id="dtkeyword3" value="" title="포함검색">
+								</li>
+								<li>
+									<label for="dtkeyword4">제외하는 단어 (!)</label>
+									<input type="text" id="dtkeyword4" value="" title="제외검색">
+								</li>
+							</ul>
+							<p class="srhnoti"> * 여러 개의 단어를 입력할 때는 쉼표(,)로 구분해서 입력하세요.</p>
+							<div class="dbtn">
+								<a href="#" onclick="javascript:doSearch();return false;" class="srh">검색</a>
+								<a href="#" class="close">닫기</a>
+								<a href="#" class="clear">초기화</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</fieldset>
+			</form>
+		</div>
+		<!-- //상세보기 끝 -->

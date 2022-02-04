@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- apit -->
 <c:forTokens var="target" items="sample,board" delims=",">
-    <c:if test="${params['category'] == target || params['category'] == 'total'}">
+    <c:if test="${params['category'] == target || params['category'] == 'total'}"> 
         <jsp:include page="/WEB-INF/views/query/query-${target}.jsp"/>
     </c:if>
 </c:forTokens>
@@ -59,6 +59,7 @@
 	</script>
 </head>
 <body>
+	<!-- 검색을 위한 form 값 -->
     <form id="historyForm" name="historyForm" action="searchpo.do" method="post">
         <input type="hidden" id="category" name="category" value="<c:out value="${params.category}" />">
         <!-- <c:out value="${params.category}" />" 
@@ -86,7 +87,9 @@
         <input type="hidden" id="tr_code" name="tr_code" value="<c:out value="${params.tr_code}" />">
         <input type="hidden" id="srch_opt" name="srch_opt" value="<c:out value="${params.srch_opt}" />">
     </form>
-     <form id="clickForm" name="clickForm" method="post">
+    
+    <!-- kla 클릭로그 사용할 때 필요한 form 값 -->
+     <form id="clickForm" name="clickForm" method="post"> 
         <input type="hidden" id="docid" name="docid">
         <input type="hidden" id="targeturl" name="targeturl">
         <input type="hidden" id="title" name="title">
@@ -150,6 +153,8 @@
 
 			</section>
 		</section>
+		
+		
         <!-- footer -->
         <footer>
             <section class="botsearch">
@@ -183,6 +188,8 @@
             </section>
         </footer>
 	</div>
+	
+	
 	<!-- 챗봇 아이콘 추가 -->
 	<div class="ico-bot">
       <a type="button" class="btn" data-toggle="modal" data-target="#chatLayer"></a>

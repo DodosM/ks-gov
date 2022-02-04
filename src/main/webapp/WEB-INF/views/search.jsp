@@ -1,24 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- apit (qeury-{brbrbr}.jspë¥¼ ê°€ì ¸ì˜¨ë‹¤ -->
+<c:forTokens var="target" items="sample,board" delims=",">
+    <c:if test="${params['category'] == target || params['category'] == 'total'}"> <!-- searchControllerì—ì„œ modelë¡œ ë°›ì•„ì˜¨ paramsë³€ìˆ˜ì˜ voì— categoryëŠ” totalë¡œ ë°•í˜€ìžˆë‹¤ -->
+        <jsp:include page="/WEB-INF/views/query/query-${target}.jsp"/>
+    </c:if>
+</c:forTokens>
+
 <!DOCTYPE html>
 <html lang="ko">
 <!--<![endif]-->
 <head>
-	<title>page test mirae</title> <!-- ºê¶ó¿ìÀú ÅÇ ºÎºÐ¿¡ ¶á´Ù -->
+	<title>page test mirae</title> <!-- ë¸Œë¼ìš°ì € íƒ­ ë¶€ë¶„ì— ëœ¬ë‹¤ -->
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> <!-- À¥ ÆäÀÌÁö¿¡¼­ »ç¿ëÀÚ°¡ º¼ ¼ö ÀÖ´Â ¿µ¿ªÀÎ ºäÆ÷Æ®¸¦ Á¦¾î. ºê¶ó¿ìÀú¿¡°Ô ÇØ´ç ÆäÀÌÁöÀÇ ¸éÀû°ú ºñÀ² µîÀ» ¾î¶»°Ô Á¦¾îÇÒ Áö¿¡ ´ëÇÑ ÁöÄ§À» Á¦°ø. -->
-	<meta name="format-detection" content="telephone=no" /> <!-- °Ë»ö¿£ÁøÀ» À§ÇØ À¥ ÆäÀÌÁö¿Í °ü·ÃµÈ ÄÞ¸¶·Î ±¸ºÐÇÑ Å°¿öµå ¸ñ·ÏÀ» ¸í½ÃÇÔ -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> <!-- ì›¹ íŽ˜ì´ì§€ì—ì„œ ì‚¬ìš©ìžê°€ ë³¼ ìˆ˜ ìžˆëŠ” ì˜ì—­ì¸ ë·°í¬íŠ¸ë¥¼ ì œì–´. ë¸Œë¼ìš°ì €ì—ê²Œ í•´ë‹¹ íŽ˜ì´ì§€ì˜ ë©´ì ê³¼ ë¹„ìœ¨ ë“±ì„ ì–´ë–»ê²Œ ì œì–´í•  ì§€ì— ëŒ€í•œ ì§€ì¹¨ì„ ì œê³µ. -->
+	<meta name="format-detection" content="telephone=no" /> <!-- ê²€ìƒ‰ì—”ì§„ì„ ìœ„í•´ ì›¹ íŽ˜ì´ì§€ì™€ ê´€ë ¨ëœ ì½¤ë§ˆë¡œ êµ¬ë¶„í•œ í‚¤ì›Œë“œ ëª©ë¡ì„ ëª…ì‹œí•¨ -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="ÅëÇÕ ÆÄÀÏ °Ë»ö ½Ã½ºÅÛ" /> <!-- description : À¥ÆäÀÌÁö¿¡ ´ëÇÑ ¼³¸íÀ» ¸í½ÃÇÔ. °Ë»ö¿£ÁøÀº °Ë»ö °á°ú¿¡ ÀÌ·¯ÇÑ ¼³¸íÀ» ÇÔ²² Ç¥½ÃÇÒ ¼ö ÀÖÀ½ -->
-	<link rel="stylesheet" href="resources/css/common.css" /> <!-- stylesheet·Î »ç¿ëÇÒ ¿ÜºÎ ¸®¼Ò½º¸¦ ºÒ·¯¿È --> <!-- link ÅÂ±×ÀÇ rel¼Ó¼ºÀº ÇöÀç¹®¼­¿Í ¿ÜºÎ ¸®¼Ò½º »çÀÌÀÇ ¿¬°ü °ü°è¸¦ ¸í½Ã. rel¼Ó¼ºÀº <link> ¿ä¼Ò¿¡ ¹Ýµå½Ã ¸í½ÃµÇ¾î¾ß ÇÏ´Â ÇÊ¼ö ¼Ó¼º -->
-	<!-- /resources°¡ ¾ÈµÇ´Â ÀÌÀ¯´Â -> servlet-context.xml¿¡¼­ resources mapping¿¡ ¿µÇâÀ» ¹Þ¾Æ¼­ -->
+	<meta name="description" content="í†µí•© íŒŒì¼ ê²€ìƒ‰ ì‹œìŠ¤í…œ" /> <!-- description : ì›¹íŽ˜ì´ì§€ì— ëŒ€í•œ ì„¤ëª…ì„ ëª…ì‹œí•¨. ê²€ìƒ‰ì—”ì§„ì€ ê²€ìƒ‰ ê²°ê³¼ì— ì´ëŸ¬í•œ ì„¤ëª…ì„ í•¨ê»˜ í‘œì‹œí•  ìˆ˜ ìžˆìŒ -->
+	<link rel="stylesheet" href="resources/css/common.css" /> <!-- stylesheetë¡œ ì‚¬ìš©í•  ì™¸ë¶€ ë¦¬ì†ŒìŠ¤ë¥¼ ë¶ˆëŸ¬ì˜´ --> <!-- link íƒœê·¸ì˜ relì†ì„±ì€ í˜„ìž¬ë¬¸ì„œì™€ ì™¸ë¶€ ë¦¬ì†ŒìŠ¤ ì‚¬ì´ì˜ ì—°ê´€ ê´€ê³„ë¥¼ ëª…ì‹œ. relì†ì„±ì€ <link> ìš”ì†Œì— ë°˜ë“œì‹œ ëª…ì‹œë˜ì–´ì•¼ í•˜ëŠ” í•„ìˆ˜ ì†ì„± -->
+	<!-- /resourcesê°€ ì•ˆë˜ëŠ” ì´ìœ ëŠ” -> servlet-context.xmlì—ì„œ resources mappingì— ì˜í–¥ì„ ë°›ì•„ì„œ -->
 	<script src="resources/js/lib/jquery-1.8.3.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/lib/html5.js"></script>
 		<script src="js/lib/respond.min.js"></script>
 	<![endif]-->
-	<!-- scriptÅÂ±×¸¦ ¸¶¹«¸® ÇÒ ¶§ <script /> ¾ÈµÊ -->
+	<!-- scriptíƒœê·¸ë¥¼ ë§ˆë¬´ë¦¬ í•  ë•Œ <script /> ì•ˆë¨ -->
 	<script src="resources/js/lib/jquery-ui.js"></script>
 	<script src="resources/js/lib/icheck.min.js"></script>
     <script src="resources/js/common.js"></script>
@@ -31,12 +38,12 @@
 </head>
 
 <body>
-	<!-- ¼û±è°ªÀ¸·Î Æû Á¦ÃâÀ» ÇÑ´Ù -->
+	<!-- ìˆ¨ê¹€ê°’ìœ¼ë¡œ í¼ ì œì¶œì„ í•œë‹¤ (ê²€ìƒ‰ì„ ìœ„í•œ form ê°’) -->
 	<form id="historyForm" name="historyForm" action="searchpo.do" method="post">
         <input type="hidden" id="category" name="category" value="<c:out value="${params.category}" />">
         <!-- <c:out value="${params.category}" />" 
-        		- ÇØ¼® : paramÀº ÄÁÆ®·Ñ·¯¿¡¼­ @ModelAttribute("param")À¸·Î ¹ÞÀ» °ªÀ¸·Î ¾¸
-        		- 	  : Áï, SearchParamVo.category·Î vo°´Ã¼¸¦ ÆÄ¶ó¹ÌÅÍ·Î °¡Á®´Ù ¾µ ¼ö ÀÖ°Ô µÊ
+        		- í•´ì„ : paramì€ ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ @ModelAttribute("param")ìœ¼ë¡œ ë°›ì„ ê°’ìœ¼ë¡œ ì”€
+        		- 	  : ì¦‰, SearchParamVo.categoryë¡œ voê°ì²´ë¥¼ íŒŒë¼ë¯¸í„°ë¡œ ê°€ì ¸ë‹¤ ì“¸ ìˆ˜ ìžˆê²Œ ë¨
         -->
         <input type="hidden" id="kwd" name="kwd" value="<c:out value="${params.kwd}" />">
         <input type="hidden" id="preKwds" name="preKwds" value="<c:out value="${params.preKwds}" />">
@@ -61,138 +68,139 @@
     </form>
 
 
-	<div id="wrap" class="user_version"> <!-- bodyÀÇ ÀüÃ¼ 'wrap' -->
-		<p id="skipnavi"><a href="#contents">º»¹® ¹Ù·Î°¡±â</a></p> <!-- È­¸é´Ü¿¡ º¸ÀÌÁö ¾ÊÀ½ -->
+	<div id="wrap" class="user_version"> <!-- bodyì˜ ì „ì²´ 'wrap' -->
+		<p id="skipnavi"><a href="#contents">ë³¸ë¬¸ ë°”ë¡œê°€ê¸°</a></p> <!-- í™”ë©´ë‹¨ì— ë³´ì´ì§€ ì•ŠìŒ -->
 		
-		<!-- header&»ó¼¼º¸±â topSearch.jsp -->
+		<header id="header"> <!-- header&ìƒì„¸ë³´ê¸° ê²€ìƒ‰íŽ˜ì´ì§€ -->
 		<jsp:include page="/WEB-INF/views/include/topSearch.jsp" />
+		</header>
 	
 		<div id="container">	
 			<div class="searchRgt">
-			°Ë»ö¾î <strong>¡°¹Î¿ø¡±</strong>¿¡ ´ëÇÑ °Ë»ö °á°úÀÔ´Ï´Ù.  <em>( 11,649°Ç )</em>
+			ê²€ìƒ‰ì–´ <strong><c:out value="${params.kwd}" /></strong>ì— ëŒ€í•œ ê²€ìƒ‰ ê²°ê³¼ìž…ë‹ˆë‹¤.  <em>( 11,649ê±´ )</em>
 			</div>
 
 			<div class="tab-ui">
 			<ul>
-				<li><a href="#searchTab1" class="on">ÅëÇÕ°Ë»ö</a></li>
-				<li><a href="#searchTab2">¿Â¶óÀÎº¸°í<span>(10)</span></a></li>
-				<li><a href="#searchTab3">¿Â-³ª¶ó<span>(10)</span></a></li>
-				<li><a href="#searchTab4">°úÁ¦¡¤°èÈ¹<span>(10)</span></a></li>
+				<li><a href="#searchTab1" class="on">í†µí•©ê²€ìƒ‰</a></li>
+				<li><a href="#searchTab2">ì˜¨ë¼ì¸ë³´ê³ <span>(10)</span></a></li>
+				<li><a href="#searchTab3">ì˜¨-ë‚˜ë¼<span>(10)</span></a></li>
+				<li><a href="#searchTab4">ê³¼ì œÂ·ê³„íš<span>(10)</span></a></li>
 			</ul>
 			</div>
 
-			<!-- ÅëÇÕ°Ë»ö -->
+			<!-- í†µí•©ê²€ìƒ‰ -->
 			<div id="searchTab1" class="tabcont active">
 				<div class="search_result">
-					<h2>¿Â¶óÀÎº¸°í(10)</h2>
+					<h2>ì˜¨ë¼ì¸ë³´ê³ (10)</h2>
 					<ul class="search_result_list">
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_xls.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 					</ul>
-					<a href="#" class="btn_more">¿Â¶óÀÎº¸°í ´õº¸±â</a>
+					<a href="#" class="btn_more">ì˜¨ë¼ì¸ë³´ê³  ë”ë³´ê¸°</a>
 				</div>
 				<div class="search_result">
-					<h2>¿Â³ª¶ó(10)</h2>
+					<h2>ì˜¨ë‚˜ë¼(10)</h2>
 					<ul class="search_result_list">
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 						<li>
 							<dl>
-								<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-								<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="¿¢¼¿ ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-								<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+								<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+								<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+								<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ì—‘ì…€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+								<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 							</dl>
 						</li>
 					</ul>
-					<a href="#" class="btn_more">¿Â¶óÀÎº¸°í ´õº¸±â</a>
+					<a href="#" class="btn_more">ì˜¨ë¼ì¸ë³´ê³  ë”ë³´ê¸°</a>
 				</div>
 			</div>
-			<!-- //ÅëÇÕ°Ë»ö -->
+			<!-- //í†µí•©ê²€ìƒ‰ -->
 
-			<!-- ¿Â¶óÀÎº¸°í -->
+			<!-- ì˜¨ë¼ì¸ë³´ê³  -->
 			<div id="searchTab2" class="tabcont">
 				<ul class="search_result_list">
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 				</ul>
 				<div class="paging">
-					<a href="#" class="btn_page_first"><span class="hide">Ã³À½¸ñ·Ï</span></a>
-					<a href="#" class="btn_page_prev"><span class="hide">ÀÌÀü</span></a>
+					<a href="#" class="btn_page_first"><span class="hide">ì²˜ìŒëª©ë¡</span></a>
+					<a href="#" class="btn_page_prev"><span class="hide">ì´ì „</span></a>
 					<span class="nums">
 						<strong>1</strong>
 						<a href="#">2</a>
@@ -200,22 +208,22 @@
 						<a href="#">4</a>
 						<a href="#">5</a>
 					</span>
-					<a href="#" class="btn_page_next"><span class="hide">´ÙÀ½</span></a>
-					<a href="#" class="btn_page_last"><span class="hide">¸¶Áö¸·¸ñ·Ï</span></a>
+					<a href="#" class="btn_page_next"><span class="hide">ë‹¤ìŒ</span></a>
+					<a href="#" class="btn_page_last"><span class="hide">ë§ˆì§€ë§‰ëª©ë¡</span></a>
 				</div>
 			</div>
-			<!-- //¿Â¶óÀÎº¸°í -->
+			<!-- //ì˜¨ë¼ì¸ë³´ê³  -->
 
-			<!-- ¿Â-³ª¶ó -->
+			<!-- ì˜¨-ë‚˜ë¼ -->
 			<div id="searchTab3" class="tabcont">
 				<div class="subcont">
 				<form>
 				<fieldset>
-					<legend>¿Â-³ª¶ó »ó¼¼°Ë»ö¾ç½Ä</legend>
+					<legend>ì˜¨-ë‚˜ë¼ ìƒì„¸ê²€ìƒ‰ì–‘ì‹</legend>
 					<ul>
 						<li>
-							<span class="use_check"><input type="checkbox" id="subct1" /><label for="subct1">»ý»ê¹®¼­(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subct2" /><label for="subct2">´ë¿ÜÁ¢¼ö¹®¼­(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subct1" /><label for="subct1">ìƒì‚°ë¬¸ì„œ(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subct2" /><label for="subct2">ëŒ€ì™¸ì ‘ìˆ˜ë¬¸ì„œ(30)</label></span>
 						</li>
 					</ul>
 				</fieldset>
@@ -224,48 +232,48 @@
 				<ul class="search_result_list">
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">º¸°íÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ë³´ê³ ì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 				</ul>
 				<div class="paging">
-					<a href="#" class="btn_page_first"><span class="hide">Ã³À½¸ñ·Ï</span></a>
-					<a href="#" class="btn_page_prev"><span class="hide">ÀÌÀü</span></a>
+					<a href="#" class="btn_page_first"><span class="hide">ì²˜ìŒëª©ë¡</span></a>
+					<a href="#" class="btn_page_prev"><span class="hide">ì´ì „</span></a>
 					<span class="nums">
 						<strong>1</strong>
 						<a href="#">2</a>
@@ -273,26 +281,26 @@
 						<a href="#">4</a>
 						<a href="#">5</a>
 					</span>
-					<a href="#" class="btn_page_next"><span class="hide">´ÙÀ½</span></a>
-					<a href="#" class="btn_page_last"><span class="hide">¸¶Áö¸·¸ñ·Ï</span></a>
+					<a href="#" class="btn_page_next"><span class="hide">ë‹¤ìŒ</span></a>
+					<a href="#" class="btn_page_last"><span class="hide">ë§ˆì§€ë§‰ëª©ë¡</span></a>
 				</div>
 			</div>
-			<!-- //¿Â-³ª¶ó -->
+			<!-- //ì˜¨-ë‚˜ë¼ -->
 
-			<!-- °úÁ¦¡¤°èÈ¹ -->
+			<!-- ê³¼ì œÂ·ê³„íš -->
 			<div id="searchTab4" class="tabcont">
 				<div class="subcont">
 				<form>
 				<fieldset>
-					<legend>°úÁ¦¡¤°èÈ¹ »ó¼¼°Ë»ö¾ç½Ä</legend>
+					<legend>ê³¼ì œÂ·ê³„íš ìƒì„¸ê²€ìƒ‰ì–‘ì‹</legend>
 					<ul>
 						<li>
-							<span class="use_check"><input type="checkbox" id="subcb1" /><label for="subcb1">½ÃµµÁ¤°úÁ¦(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subcb2" /><label for="subcb2">°úÁ¦°ü¸®(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subcb3" /><label for="subcb3">Áö½Ã»çÇ×(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subcb4" /><label for="subcb4">ÁßÀå±â°úÁ¦(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subcb5" /><label for="subcb5">ÁÖ¿äÁöÇ¥(30)</label></span>
-							<span class="use_check"><input type="checkbox" id="subcb6" /><label for="subcb6">¾÷¹«°èÈ¹(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb1" /><label for="subcb1">ì‹œë„ì •ê³¼ì œ(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb2" /><label for="subcb2">ê³¼ì œê´€ë¦¬(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb3" /><label for="subcb3">ì§€ì‹œì‚¬í•­(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb4" /><label for="subcb4">ì¤‘ìž¥ê¸°ê³¼ì œ(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb5" /><label for="subcb5">ì£¼ìš”ì§€í‘œ(30)</label></span>
+							<span class="use_check"><input type="checkbox" id="subcb6" /><label for="subcb6">ì—…ë¬´ê³„íš(30)</label></span>
 						</li>
 					</ul>
 				</fieldset>
@@ -301,45 +309,45 @@
 				<ul class="search_result_list">
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">Áö½ÃÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ì§€ì‹œì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><a href="#">ÀÏÇÏ´Â ¹æ½Ä °³¼±À» À§ÇÑ ¾÷¹«°ü¸®½Ã½ºÅÛ È°¿ë±³À°°èÈ¹ ¾È³»</a></dt>
-							<dd class="desc">...¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå... 13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç  13:30-15:30 Ã¢¿øÃ»»ç </dd>
-							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="ÇÑ±Û ÆÄÀÏ" class="icon_file"> 1. ¾÷¹«°ü¸®½Ã½ºÅÛ ±³À° ¼¼ºÎÀÏÁ¤(1).xlsx</a><a href="#" class="btn btn_preview">¹Ì¸®º¸±â</a></dd>
-							<dd class="date">Áö½ÃÀÏ : 2019-12-08</dd>
+							<dt><a href="#">ì¼í•˜ëŠ” ë°©ì‹ ê°œì„ ì„ ìœ„í•œ ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ í™œìš©êµìœ¡ê³„íš ì•ˆë‚´</a></dt>
+							<dd class="desc">...ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥... 13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬  13:30-15:30 ì°½ì›ì²­ì‚¬ </dd>
+							<dd><a href="#" class="filename"><img src="resources/images/icon_han.png" alt="í•œê¸€ íŒŒì¼" class="icon_file"> 1. ì—…ë¬´ê´€ë¦¬ì‹œìŠ¤í…œ êµìœ¡ ì„¸ë¶€ì¼ì •(1).xlsx</a><a href="#" class="btn btn_preview">ë¯¸ë¦¬ë³´ê¸°</a></dd>
+							<dd class="date">ì§€ì‹œì¼ : 2019-12-08</dd>
 						</dl>
 					</li>
 				</ul>
 				<div class="paging">
-					<a href="#" class="btn_page_first"><span class="hide">Ã³À½¸ñ·Ï</span></a>
-					<a href="#" class="btn_page_prev"><span class="hide">ÀÌÀü</span></a>
+					<a href="#" class="btn_page_first"><span class="hide">ì²˜ìŒëª©ë¡</span></a>
+					<a href="#" class="btn_page_prev"><span class="hide">ì´ì „</span></a>
 					<span class="nums">
 						<strong>1</strong>
 						<a href="#">2</a>
@@ -347,37 +355,37 @@
 						<a href="#">4</a>
 						<a href="#">5</a>
 					</span>
-					<a href="#" class="btn_page_next"><span class="hide">´ÙÀ½</span></a>
-					<a href="#" class="btn_page_last"><span class="hide">¸¶Áö¸·¸ñ·Ï</span></a>
+					<a href="#" class="btn_page_next"><span class="hide">ë‹¤ìŒ</span></a>
+					<a href="#" class="btn_page_last"><span class="hide">ë§ˆì§€ë§‰ëª©ë¡</span></a>
 				</div>
 			</div>
-			<!-- //°úÁ¦¡¤°èÈ¹ -->
+			<!-- //ê³¼ì œÂ·ê³„íš -->
 
 			<div class="rightdv">
 				<div class="dvw">
 				
 					<div class="section first">
-						<div class="tit"><span>³»°¡ Ã£Àº</span> °Ë»ö¾î</div>
+						<div class="tit"><span>ë‚´ê°€ ì°¾ì€</span> ê²€ìƒ‰ì–´</div>
 						<ol>
-							<li><span>1</span>ÄÚ·Î³ª19</li>
-							<li><span>2</span>ºñ´ë¸é°Ë»ç</li>
-							<li><span>3</span>Áö¿ø±Ý</li>
+							<li><span>1</span>ì½”ë¡œë‚˜19</li>
+							<li><span>2</span>ë¹„ëŒ€ë©´ê²€ì‚¬</li>
+							<li><span>3</span>ì§€ì›ê¸ˆ</li>
 						</ol>
 					</div>
 
 					<div class="section">
-						<div class="tit"><span>³»°¡ Ã£Àº</span> °Ë»ö¾î</div>
+						<div class="tit"><span>ë‚´ê°€ ì°¾ì€</span> ê²€ìƒ‰ì–´</div>
 						<ol class="sec">
-							<li><span class="chk">1</span>ÄÚ·Î³ª19</li>
-							<li><span class="chk">2</span>ºñ´ë¸é°Ë»ç</li>
-							<li><span class="chk">3</span>Áö¿ø±Ý</li>
-							<li><span>4</span>Áö¿ø±Ý</li>
-							<li><span>5</span>Áö¿ø±Ý</li>
-							<li><span>6</span>Áö¿ø±Ý</li>
-							<li><span>7</span>Áö¿ø±Ý</li>
-							<li><span>8</span>Áö¿ø±Ý</li>
-							<li><span>9</span>Áö¿ø±Ý</li>
-							<li><span>10</span>Áö¿ø±Ý</li>
+							<li><span class="chk">1</span>ì½”ë¡œë‚˜19</li>
+							<li><span class="chk">2</span>ë¹„ëŒ€ë©´ê²€ì‚¬</li>
+							<li><span class="chk">3</span>ì§€ì›ê¸ˆ</li>
+							<li><span>4</span>ì§€ì›ê¸ˆ</li>
+							<li><span>5</span>ì§€ì›ê¸ˆ</li>
+							<li><span>6</span>ì§€ì›ê¸ˆ</li>
+							<li><span>7</span>ì§€ì›ê¸ˆ</li>
+							<li><span>8</span>ì§€ì›ê¸ˆ</li>
+							<li><span>9</span>ì§€ì›ê¸ˆ</li>
+							<li><span>10</span>ì§€ì›ê¸ˆ</li>
 						</ol>
 					</div>
 				
@@ -391,11 +399,11 @@
 		</div>
 
 		<div class="previewpop">
-			<div class="head"><h3>Ã·ºÎÆÄÀÏ ¹Ì¸®º¸±â</h3></div>
+			<div class="head"><h3>ì²¨ë¶€íŒŒì¼ ë¯¸ë¦¬ë³´ê¸°</h3></div>
 			<div class="cont">
-			¿©¼º°¡Á·Á¤Ã¥°ü ÀúÃâ»ý°í·É»çÈ¸Á¤Ã¥°ü µµÁ¤Çõ½ÅÃßÁø´Ü ±âÈ¹Á¶Á¤½Ç Á¤Ã¥±âÈ¹°ü ´ë¿ÜÇù·Â´ã´ç°ü ¿¹»ê´ã´ç°ü ¹ý¹«´ã´ç°ü ¹®È­°ü±¤Ã¼À°±¹ ¹®È­¿¹¼ú°ú 12¿ù 3ÀÏ(È­) 13:30-15:30 Ã¢¿øÃ»»ç Àü»ê±³À°Àå
+			ì—¬ì„±ê°€ì¡±ì •ì±…ê´€ ì €ì¶œìƒê³ ë ¹ì‚¬íšŒì •ì±…ê´€ ë„ì •í˜ì‹ ì¶”ì§„ë‹¨ ê¸°íšì¡°ì •ì‹¤ ì •ì±…ê¸°íšê´€ ëŒ€ì™¸í˜‘ë ¥ë‹´ë‹¹ê´€ ì˜ˆì‚°ë‹´ë‹¹ê´€ ë²•ë¬´ë‹´ë‹¹ê´€ ë¬¸í™”ê´€ê´‘ì²´ìœ¡êµ­ ë¬¸í™”ì˜ˆìˆ ê³¼ 12ì›” 3ì¼(í™”) 13:30-15:30 ì°½ì›ì²­ì‚¬ ì „ì‚°êµìœ¡ìž¥
 			</div>
-			<a href="#" class="popclose">ÆË¾÷´Ý±â</a>
+			<a href="#" class="popclose">íŒì—…ë‹«ê¸°</a>
 		</div>
 
 		<div class="back"></div>

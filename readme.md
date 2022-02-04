@@ -24,11 +24,10 @@ resources가 어디로 mapping이 되어 있는지 확인 --> /resources/라면,
 		--> CommonUtil / ParamVO / search.jsp 위치 필수
 10. @RequestMapping value값 정하기 (/search5 로 정해야하나? 그래야 쿼리 /search5?로 접근할 수 있으니까? -> properties에 이미 정해져있음)
 
-11. search.jsp에 search.js경로 추가 해주기 
+11. search.jsp에 script js(search.js)경로 추가 해주기 
 12. search.jsp historyform구현 추가 (jstl prefix="c" 없으면 위에 추가)
 13. topSearch.jsp -> header부분을 가져와서 나눔 (jsp include page="")
-14. 각 카테고리 보여줄 jsp 생성하기
-    
+14. /views/result/ 하위에 total(전체).jsp와 각 카테고리별(예를들어, board.jsp, news.jsp, book_info.jsp등의 파일을 위치시킨다)
     
 ** 지금 훑어본 결과 lombok라이브러리 사용 중요 **
 ** jsp의 class,id로 등록된것은 수정 금지 (표준소스를 수정해야함. 이유는 css에서 해당 클래스들을 이미 사용하고 적용되었기 때문) **

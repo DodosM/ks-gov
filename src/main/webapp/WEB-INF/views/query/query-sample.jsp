@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@page import="com.konantech.ksearch.constants.SearchConstant"%>
 <%@page import="com.konantech.ksearch.util.CommonUtil"%>
 <%@page import="com.konantech.ksearch.web.vo.SearchParamVo"%>
@@ -6,15 +8,17 @@
 <%@page import="com.konantech.ksearch.module.RestModule"%>
 <%@page import="org.slf4j.Logger"%>
 <%@page import="org.slf4j.LoggerFactory"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+
+<!-- 원래 다음 쿼리문은 DAO에서 구현 -->
+<!-- 아래 %는 자바코드삽입을 위해 사용하는 태그 -->
+
  <%
    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 try{
     String listName = "sampleList";
     String totalName="sampleTotal";
 
-    SearchParamVo paramvo = (SearchParamVo)request.getAttribute("params");
+    SearchParamVo paramvo = (SearchParamVo)request.getAttribute("params"); //이전에 다른 jsp 또는 serlvet (즉, search.jsp가 이전 jsp에 해당)에 설정된 매개변수를 가져오는데 사용
     String kwd = paramvo.getKwd();
 
      //검색어 없을 경우

@@ -4,16 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <!-- s.샘플 -->
                 <div class="lst-type-wrap">
-                    <h3 data-target="sample">샘플
+                    <h3 data-target="sample">테스트 샘플을 가져옴
                     <c:choose>
                         <c:when test="${not empty error}">
-                            <span> -<c:out value="${error}"  escapeXml="false"/></span>
+                            <span> -<c:out value="${error}"  escapeXml="false"/></span> <!-- query-sample의 setAttribute("error",SearchConstrant.MSG_SEARCH_ERROR)로 가져와서 ${error} 다음과 같은 변수형태로 사용할 수 있음 -->
                         </c:when>
                         <c:otherwise>
                             <span> (<fmt:formatNumber value="${sampleTotal}" groupingUsed="true"/>건)</span>
-                            <c:if test="${params.category ne 'total'}">
+                            <%-- <c:if test="${params.category ne 'total'}">
                             <span style="float:right"><img src="resources/images/ico-excel.png" alt="엑셀다운" style="cursor: pointer;" onclick="javascript:doit('searchSample','table-data-sample')" ></span>
-                            </c:if>
+                            </c:if> --%>
                         </c:otherwise>
                     </c:choose>
                     </h3>
@@ -21,9 +21,9 @@
                     <c:if test="${sampleTotal> 0}">
                     <ul class="lst-type-thumb">
                     <c:forEach var="result" items="${sampleList}" varStatus="status">
-                    <fmt:parseDate value="${result.created_ymd}" var="dateFmt" pattern="yyyyMMdd"/>
+                    <fmt:parseDate value="${result.created_time}" var="dateFmt" pattern="yyyyMMdd"/>
                         <li style="min-height:0px">
-                            <input type="hidden" name="id" value="<c:out value="${result.post_id}"  escapeXml="false"/>">
+                            <input type="hidden" name="id" value="<c:out value="${result.idx}"  escapeXml="false"/>">
                             <dl>
                                 <dt>
                                     <a class="title" href="<c:out value="${result.post_url}"/>" target="_blank"><c:out value="${result.title}"  escapeXml="false"/></a>
@@ -49,8 +49,8 @@
 
                 <!-- 페이지 -->
                <div id="pagination" class="paging"></div>
+               
 <script type="text/javascript">
-
 $(function() {
 	 <c:if test="${params.category ne 'total'}">
     $('#pagination').pagination(<c:out value="${sampleTotal}"/>, {
@@ -62,6 +62,7 @@ $(function() {
 </script>
 
 <!--엑셀 다운로드 테이블 만들기  -->
+<!-- 
 <table border = "1" id="table-data-sample" class="dn">
     <tbody>
         <tr>
@@ -84,3 +85,4 @@ $(function() {
 </c:forEach>
     </tbody>
 </table>
+ -->
